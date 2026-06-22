@@ -1,0 +1,588 @@
+:root {
+
+  --bg-body: #f4f7fb;
+  --bg-card: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --primary-color: #3b82f6;
+  --border-color: #e2e8f0;
+
+
+  --sidebar-width: 25px;
+  --top-nav-height: 60px;
+
+
+  --prog-gray: #e2e8f0;
+  --prog-red: #ef4444;
+  --prog-yellow: #f59e0b;
+  --prog-light-green: #84cc16;
+  --prog-green: #22c55e;
+  --prog-orange: #f97316;
+
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  --radius-lg: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+
+.dashboard-main {
+  background-image: url("../assets/dashboard\ bg\ img.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  margin-left: var(--sidebar-width);
+  margin-top: var(--top-nav-height);
+  width: calc(100% - var(--sidebar-width));
+  min-height: calc(100vh - var(--top-nav-height));
+  background-color: var(--bg-body) !important;
+  padding: 2rem 2.5rem;
+  transition: margin-left 0.3s ease, width 0.3s ease;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.dashboard-content {
+  width: 100%;
+  max-width: 1600px;
+  background: transparent;
+}
+
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.dashboard-header h1 {
+  font-size: 28px;
+  color: var(--text-main);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.goal-type-selector {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.goal-type-selector label {
+  font-weight: 500;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.custom-select-wrapper select {
+  appearance: none;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 8px 36px 8px 16px;
+  font-size: 14px;
+  color: var(--text-main);
+  cursor: pointer;
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+}
+
+.custom-select-wrapper select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.dashboard-card {
+  background: whitesmoke;
+  padding: 30px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.dashboard-card h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: var(--text-main);
+}
+
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.progress-bar-wrapper {
+  width: 100%;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.progress-title {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.progress-value {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.progress-max {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.progress-bar {
+  background-color: var(--prog-gray);
+  border-radius: 999px;
+  height: 12px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-gray {
+  background-color: #cbd5e1;
+}
+
+.progress-red {
+  background-color: var(--prog-red);
+}
+
+.progress-yellow {
+  background-color: var(--prog-yellow);
+}
+
+.progress-light-green {
+  background-color: var(--prog-light-green);
+}
+
+.progress-green {
+  background-color: var(--prog-green);
+}
+
+.progress-orange {
+  background-color: var(--prog-orange);
+}
+
+.calendar-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.react-calendar {
+  width: 100%;
+  max-width: 400px;
+  border: none !important;
+  font-family: inherit !important;
+  background: transparent !important;
+}
+
+.react-calendar__navigation {
+  margin-bottom: 16px;
+}
+
+.react-calendar__navigation button {
+  min-width: 44px;
+  background: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-main);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+  background-color: var(--bg-body) !important;
+}
+
+.react-calendar__month-view__weekdays {
+  font-weight: 600 !important;
+  color: var(--text-muted) !important;
+  font-size: 12px;
+  text-decoration: none !important;
+  text-transform: uppercase;
+}
+
+.react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none;
+}
+
+.react-calendar__tile {
+  padding: 12px 8px !important;
+  font-size: 14px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  position: relative;
+  color: var(--text-main);
+}
+
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background-color: var(--bg-body) !important;
+  color: var(--primary-color);
+}
+
+.react-calendar__tile--now {
+  background: #eff6ff !important;
+  color: var(--primary-color) !important;
+  font-weight: 700;
+}
+
+.react-calendar__tile--active {
+  background: var(--primary-color) !important;
+  color: white !important;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.4);
+}
+
+.dot-indicator {
+  height: 6px;
+  width: 6px;
+  background-color: var(--prog-green);
+  border-radius: 50%;
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.react-calendar__tile--active .dot-indicator {
+  background-color: white;
+}
+
+@media screen and (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .dashboard-main {
+    margin-left: 0 !important;
+    width: 100%;
+    max-width: 100vw;
+    padding: 1.5rem 1rem;
+    display: block;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  .dashboard-content {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .goal-type-selector {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .dashboard-grid {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .dashboard-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 1.2rem;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .dashboard-card h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .progress-label {
+    font-size: 13px;
+  }
+
+  .react-calendar {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .react-calendar__tile {
+    padding: 8px 2px !important;
+    font-size: 12px;
+  }
+
+  .react-calendar__navigation button {
+    min-width: 30px;
+    padding: 4px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .dashboard-main {
+    padding: 1rem 0.5rem;
+  }
+
+  .dashboard-card {
+    padding: 1rem;
+  }
+}
+
+.food-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.food-entry input,
+.food-entry select,
+.food-entry button {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.food-log-item {
+  margin-bottom: 1rem;
+}
+
+.food-log-entry {
+  margin-top: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.food-log-entry input {
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.food-log-entry button {
+  padding: 0.4rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.food-log-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0.6rem 0;
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.category-name {
+  flex: 1;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  margin-right: 0.3rem;
+  color: green;
+}
+
+.icon-info {
+  font-size: 1rem;
+  color: #999;
+  margin-right: 0.4rem;
+}
+
+.category-value {
+  width: 32px;
+  text-align: right;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-left: 50rem;
+}
+
+.food-log-search {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.food-log-search input {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.food-log-search button {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.food-log-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  background: #f8f8f8;
+  padding: 6px 8px;
+}
+
+.food-log-items {
+  padding-left: 12px;
+  margin-top: 5px;
+}
+
+.food-log-entry-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+}
+
+.food-name {
+  font-size: 14px;
+  color: #333;
+}
+
+.food-calories {
+  font-size: 14px;
+  color: green;
+}
+
+.delete-button {
+  margin-left: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: red;
+}
+
+.category-picker {
+  margin-top: 10px;
+  padding: 10px;
+  background: #f0f8ff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.category-buttons button {
+  margin: 4px;
+  padding: 6px 12px;
+  border: none;
+  background: #007bff;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.food-log-table-wrapper {
+  margin-top: 2rem;
+  overflow-x: auto;
+  background-color: var(--bg-card);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+.food-log-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.food-log-table thead {
+  background-color: #f5f5f5;
+  text-align: left;
+}
+
+.food-log-table th,
+.food-log-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.food-log-table tbody tr:hover {
+  background-color: #fafafa;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.no-entries {
+  text-align: center;
+  margin-top: 1rem;
+  color: #666;
+}

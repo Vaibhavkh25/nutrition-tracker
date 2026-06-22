@@ -1,0 +1,251 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  overflow-x: hidden;
+}
+
+.main-container {
+
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: olivedrab;
+  color: #fff;
+  padding: 20px 0px;
+  position: fixed;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.sidebar.closed {
+  transform: translateX(-250px);
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sidebar-item:hover {
+  background-color: #34495e;
+}
+
+.sidebar-item img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.sidebar-item span {
+  font-size: 16px;
+}
+
+.content {
+  
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  padding: 20px;
+  background-color: #ecf0f1;
+  overflow-y: auto;
+}
+
+.dashboard-contente {
+  background-image: url("../assets/dashboard\ bg\ img.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  padding: 4rem;
+  margin-right: 20px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #34495e;
+  padding: 10px 20px;
+  color: #fff;
+}
+
+.header img {
+  width: 30px;
+}
+
+.header .logout-btn {
+  background-color: #e74c3c;
+  border: none;
+  padding: 5px 15px;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.header .logout-btn:hover {
+  background-color: #c0392b;
+}
+
+.food-log-search {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  margin-top: 100px;
+}
+
+.food-log-search input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.food-log-search button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #27ae60;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.food-log-search button:hover {
+  background-color: #789484;
+}
+
+@media (max-width: 1200px) and (min-width: 769px) {
+  .food-log-search {
+    flex-wrap: wrap;
+  }
+
+  .food-log-search input {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .food-log-search button {
+    width: auto;
+  }
+}
+
+.food-log-section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.category-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: #ecf0f1;
+  border-bottom: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #2c3e50;
+}
+
+.category-row:hover {
+  background: #dcdde1;
+}
+
+.category-name {
+  font-weight: 600;
+}
+
+.category-value {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.category-value span {
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.arrow {
+  font-size: 1.2rem;
+}
+
+/* ================= CALENDAR ================= */
+
+.track-calendar {
+  margin-top: 20px;
+  background: #d3d3d3;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 300px;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-250px);
+  }
+
+  .content {
+    margin-left: 0;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .food-log-search {
+    flex-direction: column;
+  }
+
+  .food-log-search input,
+  .food-log-search button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .food-log-search input,
+  .food-log-search button {
+    font-size: 14px;
+  }
+}
+
+.macro-details {
+  display: flex;
+  gap: 14px;
+  margin: 8px 0 12px;
+  font-size: 14px;
+}
+
+.macro-details span {
+  background: #eef2f7;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
